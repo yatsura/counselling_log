@@ -6,5 +6,4 @@ CounsellingLog::Application.routes.draw do
   resources :supervisors
   resources :users
   resources :counselling_sessions
- 
 end
