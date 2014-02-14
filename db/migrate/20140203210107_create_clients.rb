@@ -5,7 +5,8 @@ class CreateClients < ActiveRecord::Migration
       t.string :type
       t.integer :organisation_id
       t.text :notes
-
+      t.string :gender
+      
       t.timestamps
     end
   end
