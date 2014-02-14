@@ -50,3 +50,4 @@ group :development, :test do
 end
 
 gem 'therubyracer'
+gem 'will_paginate', '~> 3.0'
