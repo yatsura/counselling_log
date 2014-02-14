@@ -1,15 +1,15 @@
 FactoryGirl.define do
   factory :client do
-    code { |n| "CODE#{n}" }
-    type "Adult"
+    sequence(:code) { |n| "CODE#{n}" }
+    zone "Adult"
     organisation_id 1
 
     trait :adult do
-      type "Adult"
+      zone "Adult"
     end
 
     trait :child do
-      type "Child"
+      zone "Child"
     end
 
     trait :male do
@@ -22,8 +22,8 @@ FactoryGirl.define do
 
     factory :client_adult_male, :traits => [:adult, :male]
     factory :client_adult_female, :traits => [:adult, :female]
-    factory :client_child_male, :traits => [:adult, :male]
-    factory :client_child_female, :traits => [:adult, :female]
+    factory :client_child_male, :traits => [:child, :male]
+    factory :client_child_female, :traits => [:child, :female]
 
   end
 end
