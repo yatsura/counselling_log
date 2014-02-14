@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  layouts:
+    application:
+      application_title: "Counselling Log"
