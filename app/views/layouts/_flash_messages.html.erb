@@ -6,8 +6,10 @@
 </div>
 <%elsif flash[:error]%>
 <div id="error_explanation">
-<h2>Error</h2>
-<br class="clr"/>
- <%=flash[:error]%>
+    <h2>Error:</h2>
+    <p>There were problems with the following fields:</p>
+    <ul>
+      <li><%=flash[:error]%></li>
+    </ul>
 </div>
 <%end%>

@@ -24,3 +24,10 @@ en:
   layouts:
     application:
       application_title: "Counselling Log"
+  formtastic:
+    labels:
+      client:
+        type: 'Zone'
+  standard_forms:
+    successful_form_model_create: "%{resource_name} Has Been Created!"
+    successful_form_model_update: "%{resource_name} Has Been Updated!"   

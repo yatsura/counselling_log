@@ -1,0 +1,12 @@
+<%= semantic_form_for @form_vars do |f| %>
+  <%= render 'layouts/error_messages', :object => f.object %>
+  <%= f.inputs do %>
+    <%= f.input :code %>
+    <%= f.input :zone, :as => :select, :collection => %w(Adult Child) %>
+    <%= f.input :organisation %>
+    <%= f.input :gender %>
+    <%= f.input :notes %>
+  <% end %>
+
+  <%= f.actions %>
+<% end %>
