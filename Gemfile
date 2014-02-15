@@ -48,6 +48,7 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.0"
   gem "database_cleaner"
   gem "pry"
+  gem 'capybara'
 end
 
 gem 'therubyracer'
