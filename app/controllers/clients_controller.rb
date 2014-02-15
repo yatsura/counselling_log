@@ -5,5 +5,7 @@ class ClientsController < ApplicationController
     @assets = @grid.assets.paginate(:page => params[:page], :per_page => 10)
   end
 
+  def edit
+  end
 end
 
