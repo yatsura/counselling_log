@@ -49,9 +49,11 @@ group :development, :test do
   gem "database_cleaner"
   gem "pry"
   gem 'capybara'
+  gem 'cucumber-rails', :require => false
 end
 
 gem 'therubyracer'
 gem 'will_paginate', '~> 3.0'
 gem 'datagrid'
-gem 'formtastic'
+gem 'formtastic', :git => 'git://github.com/justinfrench/formtastic'
+

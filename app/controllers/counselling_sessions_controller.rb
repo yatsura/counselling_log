@@ -11,7 +11,14 @@ class CounsellingSessionsController < ApplicationController
   end
   
   def index
-    @grid = CounsellingSessionsGrid.new(params[:counselling_sessions_grid])
+    @grid = CounsellingSessionsGrid.new(params[:counselling_sessions_grid]) do |scope|
+      if params.has_key? :client_id
+        scope.where(:client_id => params[:client_id])
+      else
+        scope.all
+      end
+      
+    end
     @assets = @grid.assets.paginate(:page => params[:page], :per_page => 10)
   end
 
