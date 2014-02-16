@@ -1,8 +1,9 @@
 class ClientsController < ApplicationController
   before_filter :get_by_id, :only => [:edit, :update]
-  before_filter :get_new, :only => [:new]
+  before_filter :get_new, :only => [:new, :create]
 
   def get_new
+    @form_vars = Client.new
   end
 
   def get_by_id
@@ -20,6 +21,16 @@ class ClientsController < ApplicationController
   def new
   end
 
+  def create
+    respond_to do |format|
+      if @form_vars.update_attributes(client_params)
+        format.html { redirect_to(clients_path, :notice => t(:successful_form_model_create, :scope => :standard_forms, :resource_name => @form_vars.class.model_name.human))}
+      else
+        format.html { render :action => "new"}
+      end
+    end
+  end
+  
   def update
     respond_to do |format|
       if @form_vars.update_attributes(client_params)
