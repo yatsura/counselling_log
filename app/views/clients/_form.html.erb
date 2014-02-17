@@ -9,4 +9,5 @@
   <% end %>
 
   <%= f.actions %>
+  <%= button_to("Delete", {:action => "destroy", :id => f.object.id}, :data => {:text => "Are you sure?"}, :method => "delete") if f.object.id %>
 <% end %>

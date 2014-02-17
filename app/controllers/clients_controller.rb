@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_filter :get_by_id, :only => [:edit, :update]
+  before_filter :get_by_id, :only => [:edit, :update, :destroy]
   before_filter :get_new, :only => [:new, :create]
 
   def get_new
@@ -24,7 +24,7 @@ class ClientsController < ApplicationController
   def create
     respond_to do |format|
       if @form_vars.update_attributes(client_params)
-        format.html { redirect_to(clients_path, :notice => t(:successful_form_model_create, :scope => :standard_forms, :resource_name => @form_vars.class.model_name.human))}
+        format.html { redirect_to(clients_url, :notice => t(:successful_form_model_create, :scope => :standard_forms, :resource_name => @form_vars.class.model_name.human))}
       else
         format.html { render :action => "new"}
       end
@@ -34,13 +34,24 @@ class ClientsController < ApplicationController
   def update
     respond_to do |format|
       if @form_vars.update_attributes(client_params)
-        format.html { redirect_to(clients_path, :notice => t(:successful_form_model_update, :scope => :standard_forms, :resource_name => @form_vars.class.model_name.human))}
+        format.html { redirect_to(clients_url, :notice => t(:successful_form_model_update, :scope => :standard_forms, :resource_name => @form_vars.class.model_name.human))}
       else
         format.html { render :action => "edit"}
       end
     end
   end
 
+  def destroy
+    respond_to do |format|
+      @form_vars = @form_vars.destroy
+      if @form_vars.errors.any?
+        format.html {redirect_to(clients_url(@form_vars))}
+      else
+        format.html {redirect_to(clients_url(@form_vars), :notice => t(:successful_form_model_destroy, :scope => :standard_forms, :resource_name => @form_vars.class.model_name.human))}
+      end
+    end
+  end
+  
   def client_params
     params.require(:client).permit!
   end
