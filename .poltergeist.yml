@@ -1,0 +1,3 @@
+poltergeistjs: /home/pmitche2/Downloads/phantomjs-1.9.2-linux-x86_64/bin
+js_errors: false
+timeout: 120

@@ -50,6 +50,7 @@ group :development, :test do
   gem "pry"
   gem 'capybara'
   gem 'cucumber-rails', :require => false
+  gem "poltergeist"
 end
 
 gem 'therubyracer'
