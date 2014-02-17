@@ -1,4 +1,4 @@
-Then(/^then client is updated$/) do
+Then(/^the client is updated$/) do
   expect(page).to have_content('Client Has Been Updated!')
 end
 

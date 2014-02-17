@@ -30,11 +30,11 @@ When(/^the page is viewed$/) do
 
 end
 
-Then(/^the "(.+)" page is displayed$/) do |arg1|
+Then(/^the "(.+)" page is|are displayed$/) do |arg1|
   expect(find("h1.page_title")).to have_content(arg1)
 end
 
-Then(/^a table of client details is visible$/) do
+Then(/^a table of client details is|are visible$/) do
   within('table.clients_grid') do
     expect(page).to have_css('td.code')
     expect(page).to have_css('td.zone')

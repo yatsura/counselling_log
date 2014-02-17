@@ -8,7 +8,7 @@ Background:
   And that a client exists
 
 @javascript
-Scenario: View client
+Scenario: Delete client
   Given that the edit client page is accessed
   When the "Delete" button is pressed
   Then the client is deleted

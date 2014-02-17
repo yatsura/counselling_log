@@ -10,7 +10,7 @@ Background:
 Scenario: View client
   Given that the index client page is accessed
   When the page is viewed
-  Then a table of client details is visible
+  Then a table of client details are visible
 
 Scenario: Client sessions
   Given that the index client page is accessed

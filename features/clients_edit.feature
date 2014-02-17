@@ -7,13 +7,13 @@ Background:
   Given that a organisation exists
   And that a client exists
   
-Scenario: Create a valid client
+Scenario: Edit a client validly
   Given that the edit client page is accessed
   When valid client details are changed
   And the "Update" button is pressed
-  Then then client is updated
+  Then the client is updated
 
-Scenario: Create a invalid client
+Scenario: Edit a client invalidly
   Given that the edit client page is accessed
   When valid client details are changed
   But the code is incorrect
