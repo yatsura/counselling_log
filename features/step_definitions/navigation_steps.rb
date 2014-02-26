@@ -9,3 +9,8 @@ Given(/^that the (.+) (.+) page is accessed$/) do |action,obj|
     visit public_send("#{obj.pluralize}_path")
   end
 end
+
+Given(/^that the new session page for the client is accessed$/) do
+  @client = Client.first
+  visit new_client_counselling_session_url(@client)
+end

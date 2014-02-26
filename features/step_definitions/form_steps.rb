@@ -34,11 +34,25 @@ Then(/^the "(.+)" page is|are displayed$/) do |arg1|
   expect(find("h1.page_title")).to have_content(arg1)
 end
 
-Then(/^a table of client details is|are visible$/) do
-  within('table.clients_grid') do
-    expect(page).to have_css('td.code')
-    expect(page).to have_css('td.zone')
-    expect(page).to have_css('td.organisation_name')
-    expect(page).to have_css('td.gender')
+Then(/^a table of "(.*?)" details are visible$/) do |arg1|
+  expect(page).to have_css("table.#{arg1.gsub(' ','_')}_grid")
+end
+
+When(/^valid session details are entered$/) do
+  select 'ABC123', :from => 'Client'
+  select 'Adult', :from => 'Type'
+  within 'li#counselling_session_date_input' do
+    select '1', :from => 'Day'
+    select 'January', :from => 'Month'
+    select '2014', :from => 'Year'
   end
 end
+
+When(/^invalid session details are entered$/) do
+  within 'li#counselling_session_date_input' do
+    select '1', :from => 'Day'
+    select 'January', :from => 'Month'
+    select '2014', :from => 'Year'
+  end
+end
+
