@@ -34,7 +34,6 @@ end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
-
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -48,13 +47,14 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.0"
   gem "database_cleaner"
   gem "pry"
+  gem "pry-rails"
   gem 'capybara'
   gem 'cucumber-rails', :require => false
   gem "poltergeist"
+  gem "launchy"
 end
 
 gem 'therubyracer'
 gem 'will_paginate', '~> 3.0'
 gem 'datagrid'
 gem 'formtastic', :git => 'git://github.com/justinfrench/formtastic'
-
