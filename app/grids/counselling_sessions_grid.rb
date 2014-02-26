@@ -7,12 +7,11 @@ class CounsellingSessionsGrid
   end
 
   filter(:date, :string)
-  filter(:duration, :float)
+  filter(:length, :float)
 
   column(:date)
-  column(:duration)
+  column(:length)
   column(:notes)
-  column(:gender)
   column(:edit, :header => 'Edit', :html => true) do |client|
     link_to "Edit", edit_client_path(client)
   end
