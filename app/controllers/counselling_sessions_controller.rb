@@ -26,6 +26,8 @@ class CounsellingSessionsController < ApplicationController
   end
 
   def new
+    @form_vars.client_id = param[:client_id]
+    @form_vars = @form_vars.decorate
   end
 
   def create

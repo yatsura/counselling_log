@@ -1,1 +1,9 @@
 <h1 class="page_title">Sessions</h1>
+<%= datagrid_table @grid, @assets %>
+<div class="digg_pagination">
+  <div class="page_info">
+    <%= page_entries_info @assets %>
+  </div>
+  <%= will_paginate @assets, :container => false %>
+</div>
+<%= link_to "New", new_session_path(@client) if @client %>

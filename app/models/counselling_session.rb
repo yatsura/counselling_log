@@ -1,3 +1,5 @@
 class CounsellingSession < ActiveRecord::Base
-  validates_presence_of :client_id, :type, :date, :length
+  validates_presence_of :client_id, :zone, :date, :length
+
+  belongs_to :client
 end
