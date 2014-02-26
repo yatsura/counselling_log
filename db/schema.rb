@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140203210502) do
 
   create_table "counselling_sessions", force: true do |t|
     t.string   "client_id"
-    t.string   "type"
+    t.string   "zone"
     t.boolean  "billed"
     t.datetime "date"
     t.float    "length"
