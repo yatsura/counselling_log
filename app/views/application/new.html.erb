@@ -1,0 +1,8 @@
+<% content_for :subnav do%>
+<% render 'subnav' %>
+<% end %>
+<h1>New <%= resource_class.model_name.human %></h1>
+<br class="clr" />
+<%= semantic_form_for [parent,resource] do |f| %>
+  <%= render 'form', :f => f %>
+<% end %>
