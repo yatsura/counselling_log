@@ -1,0 +1,9 @@
+<%= render 'layouts/error_messages', :object => f.object %>
+<%= f.inputs do %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :telephone %>
+  <%= f.input :contact_name %>
+  <%= f.input :contact_email %>
+<% end %>
+<%= f.actions %>
