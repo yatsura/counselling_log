@@ -1,59 +1,14 @@
-class ClientsController < ApplicationController
-  before_filter :get_by_id, :only => [:edit, :update, :destroy]
-  before_filter :get_new, :only => [:new, :create]
-
-  def get_new
-    @form_vars = Client.new
-  end
-
-  def get_by_id
-    @form_vars = Client.find(params[:id])
-  end
+class ClientsController < InheritedResources::Base
+  belongs_to :organisation, :shallow => true
   
   def index
     @grid = ClientsGrid.new(params[:clients_grid])
     @assets = @grid.assets.paginate(:page => params[:page], :per_page => 10)
   end
 
-  def edit
-  end
-
-  def new
-  end
-
-  def create
-    respond_to do |format|
-      if @form_vars.update_attributes(client_params)
-        format.html { redirect_to(clients_url, :notice => t(:successful_form_model_create, :scope => :standard_forms, :resource_name => @form_vars.class.model_name.human))}
-      else
-        format.html { render :action => "new"}
-      end
-    end
-  end
-  
-  def update
-    respond_to do |format|
-      if @form_vars.update_attributes(client_params)
-        format.html { redirect_to(clients_url, :notice => t(:successful_form_model_update, :scope => :standard_forms, :resource_name => @form_vars.class.model_name.human))}
-      else
-        format.html { render :action => "edit"}
-      end
-    end
-  end
-
-  def destroy
-    respond_to do |format|
-      @form_vars = @form_vars.destroy
-      if @form_vars.errors.any?
-        format.html {redirect_to(clients_url(@form_vars))}
-      else
-        format.html {redirect_to(clients_url(@form_vars), :notice => t(:successful_form_model_destroy, :scope => :standard_forms, :resource_name => @form_vars.class.model_name.human))}
-      end
-    end
-  end
-  
-  def client_params
-    params.require(:client).permit!
+  protected
+  def build_resource_params
+    [params.fetch(:client, {}).permit(:code, :zone, :organisation_id, :notes, :gender)]
   end
 end
 
