@@ -1,0 +1,7 @@
+<% content_for :subnav do%>
+  <% render 'subnav' %>
+<% end %>
+<h1 class="page_title">Edit <%= resource_class.model_name.human %></h1>
+<%= semantic_form_for resource do |f| %>
+  <%= render 'form', :f => f %>
+<% end %>

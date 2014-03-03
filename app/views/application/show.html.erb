@@ -1,0 +1,10 @@
+<% content_for :subnav do%>
+  <% render 'subnav' %>
+<% end %>
+<h1><%= resource_class.model_name.human %></h1>
+<%= render 'show' %>
+
+<br class="clr"/>
+<%= render 'show_buttons' %>
+<br class="clr"/>
+<br class="clr"/>
