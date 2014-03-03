@@ -9,8 +9,8 @@ Background:
 
 @javascript
 Scenario: Delete client
-  Given that the edit client page is accessed
+  Given that the edit "client" page is accessed
   When the "Delete" button is pressed
-  Then the client is deleted
+  Then the "client" is deleted
 
 

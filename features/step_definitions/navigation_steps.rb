@@ -23,9 +23,14 @@ Given(/^that the index counselling_session page is accessed$/) do
 end
 
 Given(/^that the index client page is accessed$/) do
-  visit clients_path
+  visit organisation_clients_path(Organisation.first)
 end
 
 Given(/^that the index organisation page is accessed$/) do
   visit organisations_path
+end
+
+Given(/^that the new "(.*?)" page for the organisation is accessed$/) do |arg1|
+  @organisation = Organisation.first
+  visit public_send("new_organisation_#{arg1}_path", @organisation)
 end

@@ -8,13 +8,13 @@ Background:
   And that a client exists
   
 Scenario: Edit a client validly
-  Given that the edit client page is accessed
+  Given that the edit "client" page is accessed
   When valid client details are changed
   And the "Update" button is pressed
-  Then the client is updated
+  Then the "client" is updated
 
 Scenario: Edit a client invalidly
-  Given that the edit client page is accessed
+  Given that the edit "client" page is accessed
   When valid client details are changed
   But the code is incorrect
   And the "Update" button is pressed

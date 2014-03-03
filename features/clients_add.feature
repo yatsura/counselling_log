@@ -7,13 +7,13 @@ Background:
   Given that a organisation exists
   
 Scenario: Create a valid client
-  Given that the new client page is accessed
+  Given that the new "client" page for the organisation is accessed
   When valid client details are entered
   And the "Create" button is pressed
-  Then a new client is created
+  Then a new "client" is created
 
 Scenario: Create a invalid client
-  Given that the new client page is accessed
+  Given that the new "client" page for the organisation is accessed
   When invalid client details are entered
   And the "Create" button is pressed
   Then an error message is displayed

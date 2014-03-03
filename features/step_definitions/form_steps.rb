@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 When(/^valid client details are entered$/) do
   fill_in 'Code', :with => 'ABC123'
   select 'Adult', :from => 'Zone'
@@ -68,3 +69,17 @@ When(/^invalid session details are entered$/) do
   fill_in 'Length', :with => ''
 end
 
+When(/^valid organisation details are entered$/) do
+  fill_in 'Name', :with => 'Acme'
+  fill_in 'Address', :with => 'Someplace'
+  fill_in 'Contact name', :with => 'Joe Doë'
+end
+
+When(/^invalid organisation details are entered$/) do
+  fill_in 'Address', :with => 'Someplace'
+  fill_in 'Contact name', :with => 'Joe Doë'
+end
+
+When(/^the "(.+)" is blank$/) do |arg1|
+  fill_in arg1, :with => ''
+end
