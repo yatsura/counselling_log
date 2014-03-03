@@ -32,3 +32,13 @@ en:
     successful_form_model_create: "%{resource_name} Has Been Created!"
     successful_form_model_update: "%{resource_name} Has Been Updated!"   
     successful_form_model_destroy: "%{resource_name} Has Been Deleted!"
+  flash:
+    actions:
+      create:
+        notice: "%{resource_name} has been created!"
+      update:
+        notice: "%{resource_name} has been updated!"
+      destroy:
+        notice: "%{resource_name} has been deleted!"
+        alert: "%{resource_name} could not be disabled."
+

@@ -9,13 +9,13 @@ Background:
   And a session exists
   
 Scenario: Edit a session validly
-  Given that the edit session page is accessed
+  Given that the edit "counselling_session" page is accessed
   When valid session details are entered
   And the "Update" button is pressed
-  Then the session is updated
+  Then the "Counselling session" is updated
 
 Scenario: Edit a session invalidly
-  Given that the new session page for the client is accessed
+  Given that the edit "counselling_session" page is accessed
   When invalid session details are entered
   And the "Update" button is pressed
   Then an error message is displayed

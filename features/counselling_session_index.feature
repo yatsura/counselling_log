@@ -4,9 +4,12 @@ Feature: Counselling session index
   An index of counselling sessions is required
 
 Background:
-  Given that a organisation exists
-  And that a client exists
-  And that the client has had some sessions
+  Given the following setup:
+  | organisation | client   | zone  | sessions |
+  | ACME         | ACME-001 | Adult |        2 |
+  | ACME         | ACME-002 | Adult |        2 |
+  | BCME         | BCME-001 | Adult |        2 |
+  | BCME         | BCME-002 | Adult |        2 |
 
 Scenario: View sessions in total
   Given that the index counselling_session page is accessed
@@ -15,11 +18,11 @@ Scenario: View sessions in total
 
 Scenario: View sessions by client
   Given that the index client page is accessed
-  When the "Sessions" link is clicked
+  When the first "Sessions" link is clicked
   Then a table of "counselling_sessions" details are visible
 
 Scenario: View sessions by organisation
   Given that the index organisation page is accessed
-  When the "Sessions" link is clicked
+  When the first "Sessions" link is clicked
   Then a table of "counselling_sessions" details are visible
   

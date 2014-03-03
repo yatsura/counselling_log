@@ -9,7 +9,7 @@ Background:
   And a session exists
   
 Scenario: Delete
-  Given that the edit session page is accessed
+  Given that the show "counselling_session" page is accessed
   When the "Delete" button is pressed
-  Then the session is delete
+  Then the "counselling_session" is deleted
 

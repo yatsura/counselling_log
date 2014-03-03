@@ -64,9 +64,9 @@ Before do
 end
 
 After do |scenario|
-  if scenario.status == :failed
-    save_and_open_page
-  end
+#  if scenario.status == :failed
+#    save_and_open_page
+#  end
   DatabaseCleaner.clean
 end
 

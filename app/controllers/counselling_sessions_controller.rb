@@ -3,6 +3,12 @@ class CounsellingSessionsController < InheritedResources::Base
   
   helper_method :clients
 
+  def index
+    @grid = CounsellingSessionsGrid.new(params[:clients_grid])
+    @assets = @grid.assets.paginate(:page => params[:page], :per_page => 10)
+    index!
+  end
+
   def clients
     client_lookup = Proc.new { |n| [n.code,n.id] }
     if parent.is_a? Organisation
@@ -18,9 +24,8 @@ class CounsellingSessionsController < InheritedResources::Base
   end
   
   protected
-  def permitted_params
-    # TODO investigate strong params
-    {:counselling_sessions_params => params.fetch(:counselling_sessions_params, {}).permit!}
+  def build_resource_params
+    [params.fetch(:counselling_session, {}).permit(:client_id, :zone, :date, :length, :notes, :billed)]
   end
 end
 
