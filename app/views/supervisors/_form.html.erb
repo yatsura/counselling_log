@@ -1,0 +1,13 @@
+<%= render 'layouts/error_messages', :object => f.object %>
+<%= f.inputs do %>
+  <%= f.input :name %>
+  <%= f.input :zone, :as => :select, :collection => %w(Adult Child) %>
+  <%= f.input :cost %>
+  <%= f.input :address %>
+  <%= f.input :contact_name %>
+  <%= f.input :email_address %>
+<% end %>
+
+<%= f.actions %>
+<%= button_to("Delete", {:action => "destroy", :id => f.object.id}, :data => {:text => "Are you sure?"}, :method => "delete") if f.object.id %>
+

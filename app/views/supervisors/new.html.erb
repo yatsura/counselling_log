@@ -1,2 +1,8 @@
-<h1>Supervisors#new</h1>
-<p>Find me in app/views/supervisors/new.html.erb</p>
+<% content_for :subnav do%>
+  <% render 'subnav' %>
+<% end %>
+<h1 class="page_title">New <%= resource_class.model_name.human %></h1h1>
+<br class="clr" />
+<%= semantic_form_for resource do |f| %>
+  <%= render 'form', :f => f %>
+<% end %>

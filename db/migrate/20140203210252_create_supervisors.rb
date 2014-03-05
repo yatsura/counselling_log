@@ -5,7 +5,7 @@ class CreateSupervisors < ActiveRecord::Migration
       t.float :cost
       t.text :address
       t.string :contact_name
-      t.string :type
+      t.string :zone
       t.string :email_address
 
       t.timestamps

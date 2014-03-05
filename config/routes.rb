@@ -7,7 +7,7 @@ CounsellingLog::Application.routes.draw do
 
   resources :organisations, :concerns => :loggable, :shallow => true do
     resources :clients, :concerns => :loggable
-    resources :supervisors, :concerns => :loggable
   end
+  resources :supervisors, :concerns => :loggable
   resources :counselling_sessions
 end

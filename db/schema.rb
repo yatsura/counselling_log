@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20140203210502) do
     t.float    "cost"
     t.text     "address"
     t.string   "contact_name"
-    t.string   "type"
+    t.string   "zone"
     t.string   "email_address"
     t.datetime "created_at"
     t.datetime "updated_at"
