@@ -30,6 +30,8 @@ en:
         zone: 'Type'
       supervisor:
         zone: 'Type'
+      counselling_session:
+        zone: 'Type'
   standard_forms:
     successful_form_model_create: "%{resource_name} Has Been Created!"
     successful_form_model_update: "%{resource_name} Has Been Updated!"   

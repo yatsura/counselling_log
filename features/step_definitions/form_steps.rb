@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 When(/^valid client details are entered$/) do
   fill_in 'Code', :with => 'ABC123'
-  select 'Adult', :from => 'Zone'
+  select 'Adult', :from => 'Type'
   select 'ACME', :from => 'Organisation'
 end
 
 When(/^invalid client details are entered$/) do
   fill_in 'Code', :with => ''
-  select 'Adult', :from => 'Zone'
+  select 'Adult', :from => 'Type'
   select 'ACME', :from => 'Organisation'
 end
 
