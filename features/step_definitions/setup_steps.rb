@@ -5,3 +5,4 @@ Given(/^the following setup:$/) do |table|
     FactoryGirl.create_list :counselling_session, row[3].to_i, :client => c
   end
 end
+

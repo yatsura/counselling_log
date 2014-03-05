@@ -13,3 +13,7 @@ end
 Given(/^a session exists$/) do
   FactoryGirl.create :counselling_session, client: Client.first
 end
+
+Given(/^that a supervisor exists$/) do
+  FactoryGirl.create :supervisor
+end

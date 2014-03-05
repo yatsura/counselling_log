@@ -43,7 +43,7 @@ Then(/^a table of "(.*?)" details are visible$/) do |arg1|
 end
 
 When(/^valid session details for the client are entered$/) do
-  select 'Adult', :from => 'Zone'
+  select 'Adult', :from => 'Type'
   within 'li#counselling_session_date_input' do
     select '1', :from => 'Day'
     select 'January', :from => 'Month'
@@ -55,7 +55,7 @@ end
 
 When(/^valid session details are entered$/) do
   select 'CODE', :from => 'Client'
-  select 'Adult', :from => 'Zone'
+  select 'Adult', :from => 'Type'
   within 'li#counselling_session_date_input' do
     select '1', :from => 'Day'
     select 'January', :from => 'Month'
@@ -78,6 +78,24 @@ end
 When(/^invalid organisation details are entered$/) do
   fill_in 'Address', :with => 'Someplace'
   fill_in 'Contact name', :with => 'Joe Doë'
+end
+
+When(/^valid supervisor details are entered$/) do
+  fill_in 'Name', :with => 'Jane Doè'
+  fill_in 'Cost', :with => '35.00'
+  fill_in 'Address', :with => 'Someplace'
+  fill_in 'Contact name', :with => 'Jane Doè'
+  select 'Adult', :from => 'Type'
+  fill_in 'Email', :with => 'a@b'
+end
+
+When(/^invalid supervisor details are entered$/) do
+  fill_in 'Name', :with => ''
+  fill_in 'Cost', :with => '35.00'
+  fill_in 'Address', :with => 'Someplace'
+  fill_in 'Contact name', :with => 'Jane Doè'
+  select 'Adult', :from => 'Type'
+  fill_in 'Email', :with => 'a@b'
 end
 
 When(/^the "(.+)" is blank$/) do |arg1|
