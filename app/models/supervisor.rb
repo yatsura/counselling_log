@@ -1,5 +1,5 @@
 class Supervisor < ActiveRecord::Base
-  has_many :counselling_sessions
+  has_many :counselling_sessions, :as => :meetable
   validates_presence_of :name, :cost, :zone
   default_scope { where visible: true }
 

@@ -25,7 +25,8 @@ ActiveRecord::Schema.define(version: 20140203210502) do
   end
 
   create_table "counselling_sessions", force: true do |t|
-    t.string   "client_id"
+    t.integer  "meetable_id"
+    t.string   "meetable_type"
     t.string   "zone"
     t.boolean  "billed"
     t.datetime "date"
