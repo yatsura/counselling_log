@@ -11,6 +11,6 @@ Background:
 Scenario: Delete supervisor
   Given that the edit "supervisor" page is accessed
   When the "Delete" button is pressed
-  Then the "supervisor" is deleted
+  Then the "supervisor" is disabled
 
 

@@ -7,7 +7,8 @@ class CreateSupervisors < ActiveRecord::Migration
       t.string :contact_name
       t.string :zone
       t.string :email_address
-
+      t.boolean :visible
+      
       t.timestamps
     end
   end

@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20140203210502) do
     t.string   "contact_name"
     t.string   "zone"
     t.string   "email_address"
+    t.boolean  "visible"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
