@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140203210502) do
     t.integer  "organisation_id"
     t.text     "notes"
     t.string   "gender"
+    t.boolean  "visible"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

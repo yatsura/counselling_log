@@ -1,4 +1,5 @@
 class ClientsController < InheritedResources::Base
+  actions :all, :except => [:destroy]
   belongs_to :organisation, :shallow => true
   
   def index
@@ -6,6 +7,12 @@ class ClientsController < InheritedResources::Base
     @assets = @grid.assets.paginate(:page => params[:page], :per_page => 10)
   end
 
+  def destroy
+    resource.visible = false
+    resource.save!
+    redirect_to organisation_clients_path(parent), :notice => I18n.t(:notice, :scope => 'flash.actions.destroy', :resource_name => resource_class.model_name.human)
+  end
+  
   protected
   def build_resource_params
     [params.fetch(:client, {}).permit(:code, :zone, :organisation_id, :notes, :gender)]

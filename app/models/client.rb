@@ -1,9 +1,14 @@
 class Client < ActiveRecord::Base
   validates_presence_of :code, :zone, :organisation_id
 
+  default_scope { where visible: true }
   belongs_to :organisation
   has_many :counselling_sessions
 
+  before_create do
+    self[:visible] = true
+  end
+  
   def organisation_name
     self.organisation.name unless self.organisation.nil?
   end
