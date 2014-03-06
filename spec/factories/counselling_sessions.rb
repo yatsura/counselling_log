@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :counselling_session do
-    client_id 1
+    meetable_id 1
+    meetable_type "No such object"
     zone "Adult"
     date { Date.today }
     length 1.5
