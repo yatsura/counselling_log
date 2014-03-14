@@ -1,4 +1,4 @@
-<%= button_to "New Session", new_client_counselling_session_path(resource.client), :method => "get" %>
+<%= button_to "New Session", new_client_counselling_session_path(resource.meetable_id), :method => "get" %>
 <%= button_to "Edit", edit_counselling_session_path(resource), :method => "get" %>
 <%= button_to "Delete", {:action => "destroy", :id => resource.id}, data: { confirm: 'Are you sure?' }, :method => "delete" %>
 

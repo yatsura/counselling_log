@@ -32,6 +32,7 @@ en:
         zone: 'Type'
       counselling_session:
         zone: 'Type'
+        meetable: 'Client'
   standard_forms:
     successful_form_model_create: "%{resource_name} Has Been Created!"
     successful_form_model_update: "%{resource_name} Has Been Updated!"   

@@ -12,11 +12,11 @@ class CounsellingSessionsController < InheritedResources::Base
   def clients
     client_lookup = Proc.new { |n| [n.code,n.id] }
     if parent.is_a? Organisation
-      parent.clients.map(&client_lookup)
+      parent.meetable.map(&client_lookup)
     elsif parent.is_a? Supervisor
       [Client.where(:code => "Self").map(&client_lookup)]
     elsif parent.is_a? Client
-      resource.client = parent
+      resource.meetable = parent
       [client_lookup.call(parent)]
     else
       Client.all.map(&client_lookup)
@@ -25,7 +25,7 @@ class CounsellingSessionsController < InheritedResources::Base
   
   protected
   def build_resource_params
-    [params.fetch(:counselling_session, {}).permit(:client_id, :zone, :date, :length, :notes, :billed)]
+    [params.fetch(:counselling_session, {}).permit(:meetable_id, :zone, :date, :length, :notes, :billed)]
   end
 end
 

@@ -7,11 +7,11 @@ Given(/^that a client exists$/) do
 end
 
 Given(/^that the client has had some sessions$/) do
-  FactoryGirl.create :counselling_session, client: Client.first
+  FactoryGirl.create :counselling_session, meetable: Client.first
 end
 
 Given(/^a session exists$/) do
-  FactoryGirl.create :counselling_session, client: Client.first
+  FactoryGirl.create :counselling_session, meetable: Client.first
 end
 
 Given(/^that a supervisor exists$/) do
