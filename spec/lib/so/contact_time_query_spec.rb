@@ -11,15 +11,15 @@ describe So::ContactTimeQuery do
       end
       
       it "600 minutes total_adult_time" do
-        expect(So::ContactTimeQuery.new(nil).total_adult_time).to eq(600)
+        expect(subject.total_adult_time).to eq(600)
       end
 
       it "0 minutes total_child_time" do
-        expect(So::ContactTimeQuery.new(nil).total_child_time).to eq(0)
+        expect(subject.total_child_time).to eq(0)
       end
 
       it "600 minutes unsupervised_contact_time" do
-        expect(So::ContactTimeQuery.new(nil).unsupervised_contact_time("Adult")).to eq(600)
+        expect(subject.unsupervised_contact_time("Adult")).to eq(600)
       end
     end
     context 'child contact' do
@@ -31,15 +31,15 @@ describe So::ContactTimeQuery do
       end
       
       it "0 minutes total_adult_time" do
-        expect(So::ContactTimeQuery.new(nil).total_adult_time).to eq(0)
+        expect(subject.total_adult_time).to eq(0)
       end
 
       it "600 minutes total_child_time" do
-        expect(So::ContactTimeQuery.new(nil).total_child_time).to eq(600)
+        expect(subject.total_child_time).to eq(600)
       end
 
       it "600 minutes unsupervised_contact_time" do
-        expect(So::ContactTimeQuery.new(nil).unsupervised_contact_time("Child")).to eq(600)
+        expect(subject.unsupervised_contact_time("Child")).to eq(600)
       end
 
     end
@@ -55,7 +55,7 @@ describe So::ContactTimeQuery do
       end
 
       it "120 minutes unsupervised_contact_time" do
-        expect(So::ContactTimeQuery.new(nil).unsupervised_contact_time("Adult")).to eq(120)
+        expect(subject.unsupervised_contact_time("Adult")).to eq(120)
       end
     end
   end
