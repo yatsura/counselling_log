@@ -134,6 +134,18 @@ select {
     height: 92px;
 }
 
+.cells {
+    color: #ffffff;       
+    float:right;
+    margin-right: 10px;
+    h2 {
+       text-align: left;
+       font-weight: bold;
+       font-size: 12pt;
+       margin-top: 5px;
+       padding-bottom: -10px;
+    }
+}
 #application_logo {
     background: url('/assets/application_logo.png') no-repeat;
     //border: 1px solid #00ff00;
