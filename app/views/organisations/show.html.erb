@@ -1,1 +1,9 @@
+<h2><%= resource.name %></h2>
+<div class="show_content">
+  <ul>
+    <li>Address: <%= resource.address %></li>
+    <li>Contact: <%= resource.contact_name %></li>
+    <li>EMail  : <%= resource.contact_email %></li>
+  </ul>
+</div>
 <%= button_to("Delete", {:action => "destroy", :id => resource.id}, :data => {:text => "Are you sure?"}, :method => "delete") %>
