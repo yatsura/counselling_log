@@ -19,7 +19,7 @@ class OrganisationsGrid
   column(:session, :header => 'Sessions', :html => true) do |organisation|
     link_to "Sessions", organisation_counselling_sessions_path(organisation)
   end
-  column(:edit, :header => 'Edit', :html => true) do |organisation|
-    link_to "Edit", edit_organisation_path(organisation)
+  column(:show, :header => 'Show', :html => true) do |organisation|
+    link_to "Show", organisation_path(organisation)
   end
 end

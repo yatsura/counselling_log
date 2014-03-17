@@ -12,7 +12,7 @@ class CounsellingSessionsGrid
   column(:date)
   column(:length)
   column(:notes)
-  column(:edit, :header => 'Edit', :html => true) do |client|
-    link_to "Edit", edit_client_path(client)
+  column(:show, :header => 'Show', :html => true) do |cs|
+    link_to "Show", counselling_session_path(cs)
   end
 end

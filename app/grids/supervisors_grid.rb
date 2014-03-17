@@ -19,7 +19,7 @@ class SupervisorsGrid
   column(:session, :header => 'Sessions', :html => true) do |supervisor|
     link_to "Sessions", supervisor_counselling_sessions_path(supervisor)
   end
-  column(:edit, :header => 'Edit', :html => true) do |supervisor|
-    link_to "Edit", edit_supervisor_path(supervisor)
+  column(:show, :header => 'Show', :html => true) do |supervisor|
+    link_to "Show", supervisor_path(supervisor)
   end
 end
