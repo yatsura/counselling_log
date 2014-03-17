@@ -6,3 +6,6 @@ Given(/^the following setup:$/) do |table|
   end
 end
 
+Given(/^(\d+) hour[s]? of "(.*?)" counselling$/) do |arg1, arg2|
+  FactoryGirl.create_list :counselling_session, arg1.to_i, :adult, :hour_long, :meetable => Client.first, :zone => arg2
+end

@@ -34,7 +34,7 @@ When(/^the page is viewed$/) do
 
 end
 
-Then(/^the "(.+)" page is|are displayed$/) do |arg1|
+Then(/^the "(.+)" page [is|are] displayed$/) do |arg1|
   expect(find("h1.page_title")).to have_content(arg1)
 end
 

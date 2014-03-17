@@ -34,3 +34,7 @@ Given(/^that the new "(.*?)" page for the organisation is accessed$/) do |arg1|
   @organisation = Organisation.first
   visit public_send("new_organisation_#{arg1}_path", @organisation)
 end
+
+When(/^the "(.*?)" page is accessed$/) do |arg1|
+  visit public_send("#{arg1}_path")
+end
