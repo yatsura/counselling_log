@@ -6,4 +6,4 @@
   </div>
   <%= will_paginate @assets, :container => false %>
 </div>
-<%= link_to "New", new_organisation_client_path(parent) %>
+<%= link_to "New", new_organisation_client_path(parent) if parent %>

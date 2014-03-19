@@ -19,6 +19,6 @@ Scenario: Client sessions
 
 Scenario: Edit client
   Given that the index client page is accessed
-  When the "Edit" link is clicked
-  Then the "Edit Client" page is displayed
+  When the "Show" link is clicked
+  Then the "Client" page is displayed
 

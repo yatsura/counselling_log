@@ -1,6 +1,6 @@
 class ClientsController < InheritedResources::Base
   actions :all, :except => [:destroy]
-  belongs_to :organisation, :shallow => true
+  belongs_to :organisation, :optional => true
   
   def index
     @grid = ClientsGrid.new(params[:clients_grid])
