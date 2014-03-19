@@ -10,7 +10,12 @@ class ClientsController < InheritedResources::Base
   def destroy
     resource.visible = false
     resource.save!
-    redirect_to organisation_clients_path(parent), :notice => I18n.t(:notice, :scope => 'flash.actions.destroy', :resource_name => resource_class.model_name.human)
+    path = if parent
+      organisation_clients_path(parent)
+    else
+      root_path 
+    end
+    redirect_to path, :notice => I18n.t(:notice, :scope => 'flash.actions.destroy', :resource_name => resource_class.model_name.human)
   end
   
   protected
