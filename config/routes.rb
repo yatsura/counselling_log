@@ -1,15 +1,14 @@
 CounsellingLog::Application.routes.draw do
   root "welcome#index"
 
-  concern :loggable do
-    resources :counselling_sessions
+  concern :meetable do
+    resources :counselling_sessions, :only => [:index, :new, :create]
   end
-  concern :clients do
-    resources :clients
+
+  resources :supervisors, :concerns => :meetable
+  resources :clients, :concerns => :meetable
+  resources :organisations, :concerns => :meetable do
+    resources :clients, :only => [:index, :new, :create]
   end
-  
-  resources :organisations, :concerns => [:loggable, :clients], :shallow => true
-  resources :supervisors, :concerns => :loggable
-  resources :counselling_sessions
-  resources :clients
+  resources :counselling_sessions, :except => [:new, :create]
 end
