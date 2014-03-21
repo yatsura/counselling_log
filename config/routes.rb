@@ -10,5 +10,5 @@ CounsellingLog::Application.routes.draw do
   resources :organisations, :concerns => :meetable do
     resources :clients, :only => [:index, :new, :create]
   end
-  resources :counselling_sessions, :except => [:new, :create]
+  resources :counselling_sessions
 end

@@ -6,4 +6,4 @@
   </div>
   <%= will_paginate @assets, :container => false %>
 </div>
-<%= link_to "New", new_client_counselling_session_path(@client) if @client %>
+<%= button_to "New", new_resource_url, :method => "get" %>

@@ -1,5 +1,5 @@
 class CounsellingSessionsController < InheritedResources::Base
-  belongs_to :client,:organisation,:supervisor,:polymorphic => true, :optional => true
+  belongs_to :client,:organisation,:supervisor,:polymorphic => true,:optional => true
   
   helper_method :clients
 
