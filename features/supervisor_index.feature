@@ -18,6 +18,6 @@ Scenario: Supervisor sessions
 
 Scenario: Edit supervisor
   Given that the index "supervisor" page is accessed
-  When the "Edit" link is clicked
-  Then the "Edit Supervisor" page is displayed
+  When the "Show" link is clicked
+  Then the "Supervisor" page is displayed
 
