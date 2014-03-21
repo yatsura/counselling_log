@@ -18,6 +18,6 @@ Scenario: Organisation sessions
 
 Scenario: Edit organisation
   Given that the index organisation page is accessed
-  When the "Edit" link is clicked
-  Then the "Edit Organisation" page is displayed
+  When the "Show" link is clicked
+  Then the "Organisation" page is displayed
 
