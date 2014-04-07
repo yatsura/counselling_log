@@ -7,6 +7,18 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <div class="head_con">
+      <h1 class="application_title">Counselling Log</h1>
+      <div id="logo_con">
+	<div id="application_logo"></div>
+	<div class="cells">
+	  <%= render_cell :contact, :show, :zone => "Child", :supervision_time => Vo::CoscaAdultSupervisionTime %>
+	</div>
+	<div class="cells">
+	  <%= render_cell :contact, :show, :zone => "Adult", :supervision_time => Vo::CoscaAdultSupervisionTime %>
+	</div>
+      </div>
+    </div>
     <%= render 'layouts/navigation' %>
     <div class="main_con">
       <div class="ct box">
