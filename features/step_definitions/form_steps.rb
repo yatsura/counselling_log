@@ -24,7 +24,9 @@ When(/^the "(.+)" button is pressed$/) do |arg1|
 end
 
 When(/^the "(.+)" link is clicked$/) do |arg1|
-  click_link arg1
+  within("div.main_con") do
+    click_link arg1
+  end
 end
 
 When(/^the first "(.+)" link is clicked$/) do |arg1|
