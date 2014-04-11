@@ -6,4 +6,8 @@ class Supervisor < ActiveRecord::Base
   before_create do
     self[:visible] = true
   end
+
+  def code
+    self.name
+  end
 end

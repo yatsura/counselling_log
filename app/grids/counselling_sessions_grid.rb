@@ -12,6 +12,9 @@ class CounsellingSessionsGrid
   column(:date) do |cs|
     I18n.l cs.date, :scope => 'grid'
   end
+  column(:with) do |cs|
+    cs.meetable.code
+  end
   column(:length)
   column(:notes)
   column(:show, :header => 'Show', :html => true) do |cs|
