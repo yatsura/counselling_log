@@ -4,7 +4,7 @@ class CounsellingSessionsController < InheritedResources::Base
   helper_method :clients
 
   def index
-    @grid = CounsellingSessionsGrid.new(params[:clients_grid])
+    @grid = CounsellingSessionsGrid.new(params[:counselling_sessions_grid])
     @assets = @grid.assets.paginate(:page => params[:page], :per_page => 10)
     index!
   end
