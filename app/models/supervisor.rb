@@ -4,7 +4,7 @@ class Supervisor < ActiveRecord::Base
   default_scope { where visible: true }
 
   before_create do
-    self[:visible] = true
+    self[:visible] = true unless self[:visible] == false
   end
 
   def code
