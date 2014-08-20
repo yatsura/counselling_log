@@ -6,7 +6,7 @@ class Client < ActiveRecord::Base
   has_many :counselling_sessions, :as => :meetable
 
   before_create do
-    self[:visible] = true
+    self[:visible] = true unless self[:visible] == false
   end
   
   def organisation_name
