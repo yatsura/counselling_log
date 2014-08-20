@@ -22,3 +22,4 @@ capybara-*.html
 .rspec
 .rvmrc
 *~
+.poltergeist.yml
