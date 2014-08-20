@@ -3,7 +3,7 @@ class CounsellingSession < ActiveRecord::Base
 
   belongs_to :meetable, :polymorphic => true
 
-  def self.last_for(obj)
+  def self.last_with(obj)
     where(:meetable => obj).order(:date => :desc).first
   end
 end

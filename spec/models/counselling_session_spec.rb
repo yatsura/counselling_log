@@ -11,9 +11,9 @@ describe CounsellingSession do
     end
   end
   it "provides the last counselling session for a client" do
-    expect(CounsellingSession.last_for(Client.first)).to eq(CounsellingSession.first)
+    expect(CounsellingSession.last_with(Client.first)).to eq(CounsellingSession.first)
   end
   it "provides the last counselling session with a supervisor" do
-    expect(CounsellingSession.last_for(Supervisor.first)).to eq(CounsellingSession.all.second)
+    expect(CounsellingSession.last_with(Supervisor.first)).to eq(CounsellingSession.all.second)
   end
 end
