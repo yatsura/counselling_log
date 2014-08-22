@@ -4,7 +4,7 @@ require 'spec_helper'
 describe "clients/index.html.erb" do
   before :each do
     @organisation = FactoryGirl.create :organisation
-    FactoryGirl.create_list :client_adult_male, 10
+    FactoryGirl.create_list :client_adult_male, 10, :organisation => @organisation
     grid = ClientsGrid.new nil
     assign(:grid, grid)
     assign(:assets, grid.assets.paginate(:page => nil))
