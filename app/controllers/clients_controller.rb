@@ -6,8 +6,9 @@ class ClientsController < ApplicationController
 
   def new
     @client = Client.new
-  end	
-  
+    @organisation = Organisation.find params[:organisation_id] if params.has_key?(:organisation_id)
+  end
+
   def create
     @client = Client.new
     if @client.update_attributes(build_resource_params)
@@ -16,11 +17,12 @@ class ClientsController < ApplicationController
       render "new"
     end
   end
-  
+
   def edit
     @client = Client.find params[:id]
+    @organisation = Organisation.find params[:organisation_id] if params.has_key?(:organisation_id)
   end
-  
+
   def update
     @client = Client.find params[:id]
     if @client.update_attributes(build_resource_params)
@@ -33,13 +35,12 @@ class ClientsController < ApplicationController
   def destroy
     @client = Client.find params[:id]
     @client.destroy
-    
+
     redirect_to clients_path, :notice => I18n.t(:notice, :scope => 'flash.actions.destroy', :resource_name => Client.name)
   end
-    
+
   protected
   def build_resource_params
     params.require(:client).permit(:code, :zone,:organisation_id, :notes, :gender)
   end
 end
-

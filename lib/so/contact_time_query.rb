@@ -11,11 +11,11 @@ module So
     def total_time(zone)
       CounsellingSession.where(:zone => zone).sum('length')
     end
-    
+
     def unsupervised_contact_time(zone)
       by_date = Proc.new { |a,b| a.date <=> b.date  }
       s = Supervisor.where(:zone => zone).collect do |supervisor|
-        CounsellingSession.last_for supervisor
+        CounsellingSession.last_with supervisor
       end
       s = s.compact
       if s.empty?

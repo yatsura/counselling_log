@@ -19,6 +19,13 @@ describe ClientsController do
     end
   end
 
+  describe "GET #new within an organisation" do
+    it "assigns the @organisation" do
+      org = FactoryGirl.create :organisation
+      get :new, :organisation_id => org.id
+      expect(assigns(:organisation)).to eq(org)
+    end
+  end
   describe "POST #create" do
     context "with valid data" do
       it "creates a new record" do

@@ -6,4 +6,12 @@ class CounsellingSession < ActiveRecord::Base
   def self.last_with(obj)
     where(:meetable => obj).order(:date => :desc).first
   end
+
+  def client_id
+    if self.meetable_type == "Client"
+      self.meetable_id
+    else
+      nil
+    end
+  end
 end
