@@ -47,6 +47,11 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :development do
+  gem 'guard'
+  gem 'guard-rspec', require: false
+end
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.2'
   gem "rspec-cells"
