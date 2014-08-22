@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe "clients/index.html.erb" do
   before :each do
-    FactoryGirl.create :organisation
+    @organisation = FactoryGirl.create :organisation
     FactoryGirl.create_list :client_adult_male, 10
     grid = ClientsGrid.new nil
     assign(:grid, grid)
@@ -36,15 +36,15 @@ describe "clients/index.html.erb" do
       rendered.should include(client_counselling_sessions_path(Client.first))
     end
 
-    it 'allows editting of their details' do
+    it 'allows displaying of their details' do
       render
-      rendered.should include(edit_client_path(Client.first))
+      rendered.should include(client_path(Client.first))
     end
   end
 
-  it "allows creating a new client" do
+  it "allows creating a new client if we are within an organisation" do
+    assign(:organisation, @organisation)
     render
     rendered.should include(new_client_path)
   end
 end
-
