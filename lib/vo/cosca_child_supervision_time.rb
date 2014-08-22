@@ -1,5 +1,5 @@
 module Vo
-  class CoscaAdultSupervisionTime
+  class CoscaChildSupervisionTime
     def self.from_minutes(minutes)
       if minutes <= (6*60)
         new("Distant")

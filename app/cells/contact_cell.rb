@@ -1,11 +1,12 @@
 class ContactCell < Cell::Rails
 
   def show(args)
-    ctq = So::ContactTimeQuery.new
+    ctq = (args[:query_object] || So::ContactTimeQuery).new
+    st  = (args[:supervision_time] || Vo::CoscaAdultSupervisionTime).new
     @zone = args[:zone]
     @total_zone = ctq.total_time(@zone)
     @unsupervised_contact_time = ctq.unsupervised_contact_time(@zone)
-    @message = args[:supervision_time].from_minutes(@unsupervised_contact_time)
+    @message = st.from_minutes(@unsupervised_contact_time)
     render
   end
 
