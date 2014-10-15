@@ -1,4 +1,31 @@
 class SupervisorsController < ApplicationController
+  helper_method :resource_class, :parent, :resource, :new_resource_path, :collection_path
+
+  before_action :get_new, only: [:new, :create]
+
+  def get_new
+    @supervisor = Supervisor.new
+  end
+
+  def resource_class
+    Supervisor
+  end
+
+  def parent
+    nil
+  end
+
+  def resource
+    @supervisor
+  end
+
+  def new_resource_path
+    new_supervisor_path
+  end
+
+  def collection_path
+    supervisors_path
+  end
 
   def index
     @grid = SupervisorsGrid.new(params[:supervisors_grid])
@@ -6,22 +33,21 @@ class SupervisorsController < ApplicationController
   end
 
   def new
-    @supervisor = Supervisor.new
-  end 
-  
+
+  end
+
   def create
-    @supervisor = Supervisor.new
     if @supervisor.update_attributes(build_resource_params)
       redirect_to supervisors_path, :notice => I18n.t(:notice, :scope => 'flash.actions.create', :resource_name => Supervisor.name)
     else
       render "new"
     end
   end
-  
+
   def edit
     @supervisor = Supervisor.find params[:id]
   end
-  
+
   def update
     @supervisor = Supervisor.find params[:id]
     if @supervisor.update_attributes(build_resource_params)
@@ -30,11 +56,11 @@ class SupervisorsController < ApplicationController
       render "edit"
     end
   end
-  
+
   def destroy
     @supervisor = Supervisor.find params[:id]
     @supervisor.destroy
-    
+
     redirect_to supervisors_path, :notice => I18n.t(:notice, :scope => 'flash.actions.destroy', :resource_name => Supervisor.name)
   end
 
