@@ -4,7 +4,7 @@
 <h2 class="page_title"><%= resource_class.model_name.human %></h2>
 <%= render 'show' %>
 <br class="clr"/>
-<%= button_to "Edit", edit_resource_url, :method => "get" %>
+<%= button_to "Edit", edit_resource_path, :method => "get" %>
 <%= button_to "Delete", {:action => "destroy", :id => resource.id}, :data => {:confirm => "Are you sure?"}, :method => "delete" %>
 <br class="clr"/>
 <br class="clr"/>

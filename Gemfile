@@ -63,6 +63,7 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem "poltergeist"
   gem "launchy"
+  gem "activerecord-nulldb-adapter"
 end
 
 gem 'therubyracer'
@@ -70,4 +71,3 @@ gem 'will_paginate', '~> 3.0'
 gem 'datagrid'
 gem 'formtastic', :git => 'git://github.com/justinfrench/formtastic'
 gem 'draper', '~> 1.3'
-

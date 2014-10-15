@@ -1,10 +1,18 @@
 class ClientsController < ApplicationController
-  helper_method :resource_class, :parent, :resource, :new_resource_path, :collection_path
+  helper_method :resource_class, :parent, :resource
+  helper_method :new_resource_path, :collection_path, :edit_resource_path
 
   before_action :get_new, only: [:new, :create]
+  before_action :get_by_id, only: [:edit, :update, :show, :destroy]
 
   def get_new
     @client = Client.new
+    @organisation = Organisation.find params[:organisation_id] if params.has_key?(:organisation_id)
+  end
+
+  def get_by_id
+    @client = Client.find params[:id]
+    @organisation = Organisation.find params[:organisation_id] if params.has_key?(:organisation_id)
   end
 
   def resource_class
@@ -12,7 +20,7 @@ class ClientsController < ApplicationController
   end
 
   def parent
-    nil
+    @organisation
   end
 
   def resource
@@ -21,6 +29,10 @@ class ClientsController < ApplicationController
 
   def new_resource_path
     new_client_path
+  end
+
+  def edit_resource_path
+    edit_client_path
   end
 
   def collection_path
@@ -33,7 +45,6 @@ class ClientsController < ApplicationController
   end
 
   def new
-    @organisation = Organisation.find params[:organisation_id] if params.has_key?(:organisation_id)
   end
 
   def create
@@ -45,12 +56,10 @@ class ClientsController < ApplicationController
   end
 
   def edit
-    @client = Client.find params[:id]
-    @organisation = Organisation.find params[:organisation_id] if params.has_key?(:organisation_id)
+
   end
 
   def update
-    @client = Client.find params[:id]
     if @client.update_attributes(build_resource_params)
       redirect_to clients_path, :notice => I18n.t(:notice, :scope => 'flash.actions.update', :resource_name => Client.name)
     else
@@ -59,8 +68,8 @@ class ClientsController < ApplicationController
   end
 
   def destroy
-    @client = Client.find params[:id]
-    @client.destroy
+    @client.visible = false
+    @client.save
 
     redirect_to clients_path, :notice => I18n.t(:notice, :scope => 'flash.actions.destroy', :resource_name => Client.name)
   end

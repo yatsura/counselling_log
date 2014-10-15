@@ -1,18 +1,36 @@
 class CounsellingSessionsController < ApplicationController
-  helper_method :resource_class, :parent, :resource, :new_resource_path, :collection_path, :clients
+  helper_method :resource_class, :parent, :resource
+  helper_method :new_resource_path, :collection_path, :clients, :edit_resource_path
 
   before_action :get_new, only: [:new, :create]
+  before_action :get_by_id, only: [:edit, :update, :show, :destroy]
 
   def get_new
     @counselling_session = CounsellingSession.new
   end
+
+  def get_by_id
+    @counselling_session = CounsellingSession.find params[:id]
+  end
+
+
 
   def resource_class
     CounsellingSession
   end
 
   def parent
-    nil
+    if params.has_key? :organisation_id
+      Organisation.find params[:organisation_id]
+    elsif params.has_key? :supervisor_id
+      Supervisor.find params[:supervisor_id]
+    elsif params.has_key? :counselling_session_id
+      CounsellingSession.find params[:counselling_session_id]
+    elsif params.has_key? :client_id
+      Client.find params[:client_id]
+    else
+      nil
+    end
   end
 
   def resource
@@ -21,6 +39,10 @@ class CounsellingSessionsController < ApplicationController
 
   def new_resource_path
     new_counselling_session_path
+  end
+
+  def edit_resource_path
+    edit_counselling_session_path
   end
 
   def collection_path
@@ -45,11 +67,10 @@ class CounsellingSessionsController < ApplicationController
   end
 
   def edit
-    @counselling_session = CounsellingSession.find params[:id]
+
   end
 
   def update
-    @counselling_session = CounsellingSession.find params[:id]
     if @counselling_session.update_attributes(build_resource_params)
       redirect_to counselling_sessions_path, :notice => I18n.t(:notice, :scope => 'flash.actions.update', :resource_name => CounsellingSession.name)
     else
@@ -58,23 +79,21 @@ class CounsellingSessionsController < ApplicationController
   end
 
   def destroy
-    @counselling_session = CounsellingSession.find params[:id]
     @counselling_session.destroy
-
-    redirect_to counselling_sessions_path, :notice => I18n.t(:notice, :scope => 'flash.actions.destroy', :resource_name => CounsellingSession.name)
+    redirect_to counselling_sessions_path, :notice => I18n.t(:notice, :scope => 'flash.actions.destroy', :resource_name => CounsellingSession.name.underscore.humanize)
   end
 
   def clients
     client_lookup = Proc.new { |n| [n.code,n.id] }
     if parent.is_a? Organisation
-      parent.meetable.map(&client_lookup)
+      parent.clients.map(&client_lookup)
     elsif parent.is_a? Supervisor
-      [CounsellingSession.where(:code => "Self").map(&client_lookup)]
-    elsif parent.is_a? CounsellingSession
-      resource.meetable = parent
-      [client_lookup.call(parent)]
+      binding.pry
+      Client.where(:code => 'SELF').map(&client_lookup)
+    elsif parent.is_a? Client
+      [parent.code, parent.id]
     else
-      CounsellingSession.all.map(&client_lookup)
+      Client.all.map(&client_lookup)
     end
   end
 

@@ -18,5 +18,17 @@ FactoryGirl.define do
     trait :hour_long do
       length 60
     end
+
+    trait :with_client do
+      meetable do
+        (Client.all.first || FactoryGirl.create(:client))
+      end
+    end
+
+    trait :with_supervisor do
+      meetable do
+        (Supervisor.all.first || FactoryGirl.create(:supervisor))
+      end
+    end
   end
 end

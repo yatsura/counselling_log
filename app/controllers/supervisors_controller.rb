@@ -1,10 +1,16 @@
 class SupervisorsController < ApplicationController
-  helper_method :resource_class, :parent, :resource, :new_resource_path, :collection_path
+  helper_method :resource_class, :parent, :resource
+  helper_method :new_resource_path, :collection_path, :edit_resource_path
 
   before_action :get_new, only: [:new, :create]
+  before_action :get_by_id, only: [:edit, :show, :update, :destroy]
 
   def get_new
     @supervisor = Supervisor.new
+  end
+
+  def get_by_id
+    @supervisor = Supervisor.find params[:id]
   end
 
   def resource_class
@@ -21,6 +27,10 @@ class SupervisorsController < ApplicationController
 
   def new_resource_path
     new_supervisor_path
+  end
+
+  def edit_resource_path
+    edit_supervisor_path
   end
 
   def collection_path
@@ -45,11 +55,10 @@ class SupervisorsController < ApplicationController
   end
 
   def edit
-    @supervisor = Supervisor.find params[:id]
+
   end
 
   def update
-    @supervisor = Supervisor.find params[:id]
     if @supervisor.update_attributes(build_resource_params)
       redirect_to supervisors_path, :notice => I18n.t(:notice, :scope => 'flash.actions.update', :resource_name => Supervisor.name)
     else
@@ -58,8 +67,8 @@ class SupervisorsController < ApplicationController
   end
 
   def destroy
-    @supervisor = Supervisor.find params[:id]
-    @supervisor.destroy
+    @supervisor.visible = false
+    @supervisor.save
 
     redirect_to supervisors_path, :notice => I18n.t(:notice, :scope => 'flash.actions.destroy', :resource_name => Supervisor.name)
   end
