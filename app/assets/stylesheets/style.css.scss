@@ -1,8 +1,8 @@
-$menu-color: #008888;
-$submenu-color: darken($menu-color, 20%);
+$back-color: #c3c2a4;
+$menu-color: $back-color;
+$submenu-color:#2e6ab1;
 $border-color: #cccccc;
 
-$back-color: #e0ffff;
 $grad-back-color: #ccffff;
 
 $panel-color: #eeeeee;
@@ -30,19 +30,18 @@ $message-headertext: #ffffff;
 }
 
 body {
-    @include gradient($grad-back-color, $back-color);
     background-color: $back-color;
-    font-size: 12px;
+    font-size: 12pt;
     font-family: Arial,Helvetica,sans-serif;
     padding: 0px;
     margin: 0px;
 }
 
 a {
-  color: $border-color; 
+  color: $text-color;
   font-weight: normal;
-  &:hover { 
-    color: $grad-back-color;
+  &:hover {
+    background-color: $menu-color;
   }
 }
 
@@ -62,7 +61,7 @@ ul {
 
 .button_to {
     display: inline;
-    
+
     div {
         display: inline;
     }
@@ -117,9 +116,9 @@ select {
     }
 
     a:hover {
-        text-decoration:underline; 
+        text-decoration:underline;
     }
-    
+
     .ft {
       padding: 0px 20px 0px 20px;
     }
@@ -138,18 +137,18 @@ select {
     display: block;
     position: relative;
     background-color: $menu-color;
-    width: 100%;
+    width: 50%;
     height: 2.75em;
     color: black;
 
     li a {
    	 font-size: 2em;
        	 color: black;
-         text-decoration: none;	
+         text-decoration: none;
 	 &:hover {
 	   color: lighten($menu-color, 20%);
 	   background-color: darken($menu-color, 20%)
-         }	 
+         }
     }
 
 }
@@ -165,11 +164,11 @@ select {
         li a {
    	 font-size: 2em;
        	 color: lighten($submenu-color, 25%);
-         text-decoration: none;	
+         text-decoration: none;
 	 &:hover {
 	   color: lighten($submenu-color, 50%);
 	   background-color: darken($submenu-color, 20%)
-         }	 
+         }
     }
 
 }
@@ -181,12 +180,12 @@ select {
     li {
        list-style-type: none;
        display: inline-block;
-       padding: 5px 0px 0px 5px;       
+       padding: 5px 0px 0px 5px;
     }
 }
 
 .cells {
-    color: #ffffff;       
+    color: #ffffff;
     float:right;
     margin-right: 10px;
     h2 {
@@ -219,7 +218,7 @@ select {
   padding: 7px;
   padding-bottom: 12px;
   margin-bottom: 20px;
-  
+
   h2 {
       text-align: left;
       font-weight: bold;
@@ -254,7 +253,7 @@ select {
   padding: 7px;
   padding-bottom: 12px;
   margin-bottom: 20px;
-  
+
   h2 {
       text-align: left;
       font-weight: bold;
@@ -421,5 +420,5 @@ div.responses {
 h1.application_title {
   color: #ffffff;
   width: 60%;
-  float: left;  
+  float: left;
 }
