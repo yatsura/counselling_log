@@ -23,6 +23,12 @@ FactoryGirl.define do
     trait :invisible do
       visible false
     end
+
+    trait :self do
+      organisation_id 0
+      code "SELF"
+    end
+
     factory :client_adult_male, :traits => [:adult, :male]
     factory :client_adult_female, :traits => [:adult, :female]
     factory :client_child_male, :traits => [:child, :male]
