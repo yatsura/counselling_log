@@ -1,9 +1,0 @@
-<h2 class="page_title">Sessions</h1>
-<%= datagrid_table @grid, @assets %>
-<div class="apple_pagination">
-  <div class="page_info">
-    <%= page_entries_info @assets %>
-  </div>
-  <%= will_paginate @assets, :container => false %>
-</div>
-<%= button_to "New", new_counselling_session_path, :method => "get" %>
