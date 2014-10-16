@@ -12,7 +12,7 @@ Scenario: Edit a session validly
   Given that the edit "counselling_session" page is accessed
   When valid session details are entered
   And the "Update" button is pressed
-  Then the "Counselling session" is updated
+  Then the "Session" is updated
 
 Scenario: Edit a session invalidly
   Given that the edit "counselling_session" page is accessed

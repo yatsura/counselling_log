@@ -61,7 +61,7 @@ class CounsellingSessionsController < ApplicationController
 
   def create
     if @counselling_session.update_attributes(build_resource_params)
-      redirect_to counselling_sessions_path, :notice => I18n.t(:notice, :scope => 'flash.actions.create', :resource_name => CounsellingSession.name)
+      redirect_to counselling_sessions_path, :notice => I18n.t(:notice, :scope => 'flash.actions.create', :resource_name => CounsellingSession.model_name.human)
     else
       render "new"
     end
@@ -74,7 +74,7 @@ class CounsellingSessionsController < ApplicationController
   def update
     if @counselling_session.update_attributes(build_resource_params)
       redirect_to counselling_sessions_path,
-      :notice => I18n.t(:notice, :scope => 'flash.actions.update', :resource_name => CounsellingSession.name.underscore.humanize)
+      :notice => I18n.t(:notice, :scope => 'flash.actions.update', :resource_name => CounsellingSession.model_name.human)
     else
       render "edit"
     end
@@ -83,7 +83,7 @@ class CounsellingSessionsController < ApplicationController
   def destroy
     @counselling_session.destroy
     redirect_to counselling_sessions_path,
-    :notice => I18n.t(:notice, :scope => 'flash.actions.destroy', :resource_name => CounsellingSession.name.underscore.humanize)
+    :notice => I18n.t(:notice, :scope => 'flash.actions.destroy', :resource_name => CounsellingSession.model_name.human)
   end
 
   def clients

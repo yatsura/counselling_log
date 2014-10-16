@@ -34,7 +34,7 @@ en:
         meetable: 'Client'
   standard_forms:
     successful_form_model_create: "%{resource_name} Has Been Created!"
-    successful_form_model_update: "%{resource_name} Has Been Updated!"   
+    successful_form_model_update: "%{resource_name} Has Been Updated!"
     successful_form_model_destroy: "%{resource_name} Has Been Deleted!"
   flash:
     actions:
@@ -55,7 +55,7 @@ en:
     - Fri
     - Sat
     abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mar
@@ -81,7 +81,7 @@ en:
       long: ! '%d %B, %Y'
       short: ! '%d %b'
     month_names:
-    - 
+    -
     - January
     - February
     - March
@@ -178,7 +178,7 @@ en:
       body: ! 'There were problems with the following fields:'
       header:
         one: 1 error prohibited this %{model} from being saved
-        other: ! '%{count} errors prohibited this %{model} from being saved'  
+        other: ! '%{count} errors prohibited this %{model} from being saved'
   helpers:
     select:
       prompt: Please select
@@ -249,6 +249,9 @@ en:
   activemodel:
     errors:
       <<: *errors
+  activerecord:
+    models:
+      counselling_session: "Session"
   grid:
     time:
       formats:
