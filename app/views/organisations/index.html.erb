@@ -1,9 +1,0 @@
-<h1 class="page_title">Organisation Index</h1>
-<%= datagrid_table @grid, @assets %>
-<div class="apple_pagination">
-  <div class="page_info">
-    <%= page_entries_info @assets %>
-  </div>
-  <%= will_paginate @assets, :container => false %>
-</div>
-<%= link_to "New", new_organisation_path %>
