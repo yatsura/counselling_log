@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class CounsellingSessionsController < ApplicationController
   helper_method :resource_class, :parent, :resource
   helper_method :new_resource_path, :collection_path, :clients, :edit_resource_path
@@ -72,7 +73,8 @@ class CounsellingSessionsController < ApplicationController
 
   def update
     if @counselling_session.update_attributes(build_resource_params)
-      redirect_to counselling_sessions_path, :notice => I18n.t(:notice, :scope => 'flash.actions.update', :resource_name => CounsellingSession.name)
+      redirect_to counselling_sessions_path,
+      :notice => I18n.t(:notice, :scope => 'flash.actions.update', :resource_name => CounsellingSession.name.underscore.humanize)
     else
       render "edit"
     end
@@ -80,21 +82,12 @@ class CounsellingSessionsController < ApplicationController
 
   def destroy
     @counselling_session.destroy
-    redirect_to counselling_sessions_path, :notice => I18n.t(:notice, :scope => 'flash.actions.destroy', :resource_name => CounsellingSession.name.underscore.humanize)
+    redirect_to counselling_sessions_path,
+    :notice => I18n.t(:notice, :scope => 'flash.actions.destroy', :resource_name => CounsellingSession.name.underscore.humanize)
   end
 
   def clients
-    client_lookup = Proc.new { |n| [n.code,n.id] }
-    if parent.is_a? Organisation
-      parent.clients.map(&client_lookup)
-    elsif parent.is_a? Supervisor
-      binding.pry
-      Client.where(:code => 'SELF').map(&client_lookup)
-    elsif parent.is_a? Client
-      [parent.code, parent.id]
-    else
-      Client.all.map(&client_lookup)
-    end
+    Lookups::Client.by_parent(parent)
   end
 
   protected
