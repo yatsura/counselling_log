@@ -52,7 +52,7 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
 
   # Migrations to RSpec 3
-
+  config.infer_spec_type_from_file_location!
   # End of migration to Rspec 3
 
   # Run specs in random order to surface order dependencies. If you find an

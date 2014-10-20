@@ -16,11 +16,6 @@ describe ContactCell do
       360
     end
   end
-  context "cell instance" do
-    subject { cell(:contact) }
-
-    it { should respond_to(:show) }
-  end
 
   context "cell rendering" do
     subject { render_cell(:contact, :show, :zone => "Adult", :supervision_time => SupervisionTimeMock, :query_object => QueryObjectMock) }
