@@ -53,6 +53,8 @@ When(/^valid session details for the client are entered$/) do
     select '09', :from => 'Hour'
     select '45', :from => 'Minute'
   end
+  fill_in 'Length', :with => "60"
+  select Client.first.code, :from => 'Meetable'
 end
 
 When(/^valid session details are entered$/) do
@@ -65,6 +67,7 @@ When(/^valid session details are entered$/) do
     select '09', :from => 'Hour'
     select '45', :from => 'Minute'
   end
+  fille_in 'Length', :with => '60'
 end
 
 When(/^invalid session details are entered$/) do

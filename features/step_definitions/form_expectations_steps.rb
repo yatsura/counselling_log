@@ -1,5 +1,5 @@
 Then(/^a new "(.+)" is created$/) do |arg|
-  arg.classify.constantize.count > 0
+  expect(arg.classify.constantize.count).to be > 0
 end
 
 Then(/^(\d+) hour[s]? of "(.*?)" counselling is displayed$/) do |arg1, arg2|
