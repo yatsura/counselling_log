@@ -1,6 +1,7 @@
 <%= render 'layouts/error_messages', :object => f.object %>
 <%= f.inputs do %>
-  <%= f.input :meetable, :as => :select, :collection => clients %>
+  <%= f.input :meetable_type, :as => :hidden %>
+  <%= f.input :meetable_id, :as => :select, :collection => clients %>
   <%= f.input :zone, :as => :select, :collection => %w(Adult Child) %>
   <%= f.input :date %>
   <%= f.input :length %>

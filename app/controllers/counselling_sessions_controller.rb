@@ -8,13 +8,12 @@ class CounsellingSessionsController < ApplicationController
 
   def get_new
     @counselling_session = CounsellingSession.new
+    @counselling_session.meetable_type = parent.class.name unless parent.nil?
   end
 
   def get_by_id
     @counselling_session = CounsellingSession.find params[:id]
   end
-
-
 
   def resource_class
     CounsellingSession
@@ -92,6 +91,6 @@ class CounsellingSessionsController < ApplicationController
 
   protected
   def build_resource_params
-    params.require(:counselling_session).permit(:meetable_id, :zone, :date, :length, :notes, :billed)
+    params.require(:counselling_session).permit(:meetable_id, :meetable_type, :zone, :date, :length, :notes, :billed)
   end
 end

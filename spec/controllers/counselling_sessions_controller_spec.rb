@@ -17,6 +17,12 @@ describe CounsellingSessionsController do
       get :new
       expect(assigns(:counselling_session)).to be_a_new_record
     end
+
+    it "assigns meetable type if present" do
+      client = FactoryGirl.create :client
+      get :new, :client_id => client.id
+      expect(assigns(:counselling_session).meetable_type).to eq("Client")
+    end
   end
 
   describe "POST #create" do
