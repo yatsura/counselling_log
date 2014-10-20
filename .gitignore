@@ -23,3 +23,5 @@ capybara-*.html
 .rvmrc
 *~
 .poltergeist.yml
+.ruby-gemset
+.ruby-version
