@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Client do
+describe Client, :type => :model do
   before(:each) do
     @organisation = FactoryGirl.create :organisation
     FactoryGirl.create_list :client, 5, :female, :adult

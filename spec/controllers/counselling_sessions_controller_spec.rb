@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CounsellingSessionsController do
+describe CounsellingSessionsController, :type => :controller do
   describe "GET #new" do
     it "responds successfully with an HTTP 200 status code" do
       get :new

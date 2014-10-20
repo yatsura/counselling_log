@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Supervisor do
+describe Supervisor, :type => :model do
   before(:each) do
     FactoryGirl.create_list :supervisor, 2, :adult
     FactoryGirl.create :supervisor, :adult, :invisible

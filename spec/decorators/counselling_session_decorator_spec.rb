@@ -14,7 +14,7 @@ describe CounsellingSessionDecorator do
       expect(subject.client_control).to have_selector('input')
     end
     it "create a selection with the clients type selected by default" do
-      pending
+      skip
     end
   end
   describe "when the model exists" do

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CounsellingSession do
+describe CounsellingSession, :type => :model do
   before(:each) do
     FactoryGirl.create :client
     FactoryGirl.create :supervisor

@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe Organisation do
+describe Organisation, :type => :model do
 
 end

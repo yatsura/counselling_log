@@ -10,6 +10,6 @@ require 'spec_helper'
 #     end
 #   end
 # end
-describe CounsellingSessionsHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe CounsellingSessionsHelper, :type => :helper do
+  skip "add some examples to (or delete) #{__FILE__}"
 end
