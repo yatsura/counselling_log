@@ -63,7 +63,6 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem "poltergeist"
   gem "launchy"
-  gem "activerecord-nulldb-adapter"
 end
 
 gem 'therubyracer'
