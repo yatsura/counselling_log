@@ -1,4 +1,4 @@
-Given(/^that the (.+) "(.+)" page is accessed$/) do |action,obj| 
+Given(/^that the (.+) "(.+)" page is accessed$/) do |action,obj|
   case action
   when "new"
     visit public_send("#{action}_#{obj}_path")
@@ -13,9 +13,15 @@ Given(/^that the (.+) "(.+)" page is accessed$/) do |action,obj|
   end
 end
 
-Given(/^that the new "(.+)" page for the client is accessed$/) do |arg| 
+Given(/^that the new "(.+)" page for the client is accessed$/) do |arg|
   @client = Client.first
   visit public_send("new_client_#{arg}_path",@client)
+end
+
+Given(/^that the new "(.*?)" page for the supervisor is accessed$/) do |arg1|
+  @supervisor = Supervisor.first
+  Client.create :code => 'SELF', :organisation_id => 0, :zone => :all
+  visit public_send("new_supervisor_#{arg1}_path", @supervisor)
 end
 
 Given(/^that the index counselling_session page is accessed$/) do

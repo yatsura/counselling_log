@@ -9,7 +9,7 @@ module So
     end
 
     def total_time(zone)
-      CounsellingSession.where(:zone => zone).sum('length')
+      CounsellingSession.where(:zone => zone, :meetable_type => 'Client').sum('length')
     end
 
     def unsupervised_contact_time(zone)
@@ -19,9 +19,9 @@ module So
       end
       s = s.compact
       if s.empty?
-        CounsellingSession.where(:zone => zone).sum('length')
+        total_time(zone)
       else
-        CounsellingSession.where('zone = ? AND date > ?',"Adult",s.sort(&by_date).last.date).sum('length')
+        CounsellingSession.joins("INNER JOIN clients ON clients.id = meetable_id AND meetable_type = 'Client'").where("counselling_sessions.zone = ? AND date > ?",zone,s.sort(&by_date).last.date).sum('length')
       end
     end
   end

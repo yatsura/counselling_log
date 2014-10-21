@@ -3,7 +3,7 @@ FactoryGirl.define do
     meetable_id 1
     meetable_type "No such object"
     zone "No such zone"
-    date { Date.today }
+    date { 1.week.ago }
     length 1.5
     billed false
 

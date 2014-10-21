@@ -57,6 +57,20 @@ When(/^valid session details for the client are entered$/) do
   select Client.first.code, :from => 'Meetable'
 end
 
+When(/^valid session details for the supervisor are entered$/) do
+  date = Date.today
+  select 'Adult', :from => 'Type'
+  within 'li#counselling_session_date_input' do
+    select date.day, :from => 'Day'
+    select Date::MONTHNAMES[date.month], :from => 'Month'
+    select date.year, :from => 'Year'
+    select '09', :from => 'Hour'
+    select '45', :from => 'Minute'
+  end
+  fill_in 'Length', :with => "60"
+  select Supervisor.first.code, :from => 'Meetable'
+end
+
 When(/^valid session details are entered$/) do
   select 'CODE', :from => 'Client'
   select 'Adult', :from => 'Type'
