@@ -7,26 +7,29 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="head_con">
-      <h1 class="application_title">Counselling Log</h1>
-      <div id="logo_con">
-	<div id="application_logo"></div>
-	<div class="cells">
+    <div class="container">
+      <div class="head_con row">
+        <h1 class="application_title">Counselling Log</h1>
+        <div class="col-md-4">
+	  <div id="application_logo"></div>
+        </div>
+        <div class="cells col-md-4">
 	  <%= render_cell :contact, :show, :zone => "Child", :supervision_time => Vo::CoscaAdultSupervisionTime %>
 	</div>
-	<div class="cells">
+	<div class="cells col-md-4">
 	  <%= render_cell :contact, :show, :zone => "Adult", :supervision_time => Vo::CoscaAdultSupervisionTime %>
 	</div>
       </div>
     </div>
     <%= render 'navigation' %>
-    <div class="main_con">
-      <div class="ct box">
-	<%= render 'layouts/flash_messages' %> 	
-	<%= yield %>
-      </div>
-      <%= debug(params) if Rails.env.development? %>    	
-    </div> 
-    <%= render 'layouts/footer' %> 
+    <div class="row">
+      <%= render 'layouts/flash_messages' %>
+    </div>
+    <div class="row">
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+    </div>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

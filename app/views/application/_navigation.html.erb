@@ -1,5 +1,5 @@
-<div class="navigation">
-  <ol class="app_menu">
+<div class="navigation row">
+  <ol class="app_menu col-md-8">
     <li><%= link_to "Clients", clients_path %></li>
     <li><%= link_to "Sessions", counselling_sessions_path %></li>
     <li><%= link_to "Organisations", organisations_path %></li>
@@ -7,8 +7,8 @@
   </ol>
 </div>
 <% unless controller_name == "welcome" then %>
-  <div class="subnavigation">
-    <ol class="app_menu">
+  <div class="subnavigation row">
+    <ol class="app_menu col-md-8">
       <li><%= link_to "New", new_resource_path %></li>
       <li><%= link_to "Index", collection_path %></li>
     </ol>

@@ -1,3 +1,4 @@
+<div class="col-md-8">
 <h2 class="page_title"><%= "#{resource_class.model_name.human.pluralize}" %></h2>
 <%= datagrid_table @grid, @assets %>
 <div class="apple_pagination">
@@ -7,3 +8,4 @@
   <%= will_paginate @assets, :container => false %>
 </div>
 <%= link_to "New", new_resource_path %>
+</div>
