@@ -1,2 +1,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+div.apple_pagination  {
+  margin-bottom: 15px;
+}
+
+.container > .table > thead > tr > th {
+  vertical-align: initial;
+}
+
+a.distant > span.glyphicon {
+  color: green;
+  font-size: 12pt;
+}

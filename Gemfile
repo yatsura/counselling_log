@@ -34,6 +34,9 @@ gem 'jbuilder', '~> 1.2'
 # Cells are View Components for Rails. They look and feel like controllers.
 gem "cells"
 
+# HAML
+gem "haml"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
