@@ -1,32 +1,19 @@
 require 'spec_helper'
 
 describe ContactCell do
-  class SupervisionDistantMock
-    def self.from_minutes(args)
-      Class.new do
-        def html_class
-          "distant"
-        end
-
-        def glyphicon
-          "glyphicon-ok-sign"
-        end
-      end.new
-    end
-  end
-
-  class QueryObjectMock
-    def total_time(args)
-      600
-    end
-
-    def unsupervised_contact_time(args)
-      360
-    end
+  before(:each) do
+    @queryObject = instance_double("So::ContactTimeQuery")
+    allow(@queryObject).to receive(:total_time) { 600 }
+    allow(@queryObject).to receive(:unsupervised_contact_time) { 360 }
+    cast_inst = instance_double("Vo::CoscaAdultSupervisionTime")
+    allow(cast_inst).to receive(:html_class) { "distant" }
+    allow(cast_inst).to receive(:glyphicon) { "glyphicon-ok-sign" }
+    @classVo = class_double("Vo::CoscaAdultSupervisionTime")
+    allow(@classVo).to receive(:from_minutes) { cast_inst }
   end
 
   context "cell rendering" do
-    subject { render_cell(:contact, :show, :zone => "Child", :supervision_time => SupervisionDistantMock, :query_object => QueryObjectMock) }
+    subject { render_cell(:contact, :show, :zone => "Child", :supervision_time => @classVo, :query_object => @queryObject) }
 
     it { is_expected.to have_selector("span.glyphicon-ok-sign") }
     it { is_expected.to have_selector("a.distant") }
@@ -35,13 +22,13 @@ describe ContactCell do
     it { is_expected.to have_selector(".dropdown-information", :text => "UCT: 6 hours") }
 
     context "rendering adult time" do
-      subject { render_cell(:contact, :show, :zone => "Adult", :supervision_time => SupervisionDistantMock, :query_object => QueryObjectMock) }
+      subject { render_cell(:contact, :show, :zone => "Adult", :supervision_time => @classVo, :query_object => @queryObject) }
 
       it { is_expected.to have_selector("a", :text => "Adult") }
     end
 
     context "rendering child time" do
-      subject { render_cell(:contact, :show, :zone => "Child", :supervision_time => SupervisionDistantMock, :query_object => QueryObjectMock) }
+      subject { render_cell(:contact, :show, :zone => "Child", :supervision_time => @classVo, :query_object => @queryObject) }
 
       it { is_expected.to have_selector("a", :text => "Child") }
     end
