@@ -6,28 +6,36 @@
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
-    <div class="container">
-      <div class="head_con row">
-        <h1 class="application_title">Counselling Log</h1>
-        <div class="col-md-4">
-	  <div id="application_logo"></div>
+  <body role="document">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">Counselling Log</a>
         </div>
-        <div class="cells col-md-4">
-	  <%= render_cell :contact, :show, :zone => "Child", :supervision_time => Vo::CoscaAdultSupervisionTime %>
-	</div>
-	<div class="cells col-md-4">
-	  <%= render_cell :contact, :show, :zone => "Adult", :supervision_time => Vo::CoscaAdultSupervisionTime %>
-	</div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><%= link_to "Clients", clients_path %></li>
+            <li><%= link_to "Sessions", counselling_sessions_path %></li>
+            <li><%= link_to "Organisations", organisations_path %></li>
+            <li><%= link_to "Supervisors", supervisors_path %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-nav-right">
+            <%= render_cell :contact, :show, :zone => "Adult", :supervision_time => Vo::CoscaAdultSupervisionTime %>
+            <%= render_cell :contact, :show, :zone => "Child", :supervision_time => Vo::CoscaAdultSupervisionTime %>
+          </ul>
+        </div>
       </div>
-    </div>
-    <%= render 'navigation' %>
-    <div class="row">
-      <%= render 'layouts/flash_messages' %>
-    </div>
-    <div class="row">
+    </nav>
+    <div class="container" role="main">
       <%= yield %>
     </div>
+    <div>
     <%= render 'layouts/footer' %>
     </div>
     <%= debug(params) if Rails.env.development? %>
