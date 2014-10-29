@@ -2,13 +2,13 @@ require 'spec_helper'
 
 describe ContactCell do
   before(:each) do
-    @queryObject = instance_double("So::ContactTimeQuery")
+    @classVo = class_double(Vo::CoscaAdultSupervisionTime)
+    cast_inst = instance_double(Vo::CoscaAdultSupervisionTime)
+    @queryObject = instance_double(So::ContactTimeQuery)
     allow(@queryObject).to receive(:total_time) { 600 }
     allow(@queryObject).to receive(:unsupervised_contact_time) { 360 }
-    cast_inst = instance_double("Vo::CoscaAdultSupervisionTime")
     allow(cast_inst).to receive(:html_class) { "distant" }
     allow(cast_inst).to receive(:glyphicon) { "glyphicon-ok-sign" }
-    @classVo = class_double("Vo::CoscaAdultSupervisionTime")
     allow(@classVo).to receive(:from_minutes) { cast_inst }
   end
 

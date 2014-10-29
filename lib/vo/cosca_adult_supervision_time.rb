@@ -24,6 +24,10 @@ module Vo
       @scale.downcase.sub(' ', '-')
     end
 
+    def glyphicon
+      ""
+    end
+
     def hash
       @scale.hash
     end
