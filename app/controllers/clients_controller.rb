@@ -1,6 +1,7 @@
 class ClientsController < ApplicationController
   helper_method :resource_class, :parent, :resource
   helper_method :new_resource_path, :collection_path, :edit_resource_path
+  helper_method :org_list
 
   before_action :get_new, only: [:new, :create]
   before_action :get_by_id, only: [:edit, :update, :show, :destroy]
@@ -37,6 +38,10 @@ class ClientsController < ApplicationController
 
   def collection_path
     clients_path
+  end
+
+  def org_list
+    Organisation.all.map { |org| [org.name, org.id] }
   end
 
   def index

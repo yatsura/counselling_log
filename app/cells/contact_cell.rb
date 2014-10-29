@@ -6,7 +6,7 @@ class ContactCell < Cell::Rails
     @zone = args[:zone]
     @total_zone = ctq.total_time(@zone)
     @unsupervised_contact_time = ctq.unsupervised_contact_time(@zone)
-    @message = st.from_minutes(@unsupervised_contact_time)
+    @st = st.from_minutes(@unsupervised_contact_time)
     render
   end
 

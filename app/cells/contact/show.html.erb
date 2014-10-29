@@ -1,8 +1,11 @@
-<fieldset>
-  <legend><%= @zone %></legend>
-  <ul>
-    <li><label for="total-time">Total time:</label><span id="total-time"><%= @total_zone / 60 %> hours</span></li>
-    <li><label for="unsupervised-contact-time">UCT:</label><span id="unsupervised-contact-time"><%= @unsupervised_contact_time / 60 %> hours</span></li>
-    <li><label for="supervision-message">Supervision:</label><span id="supervision-message"><%= @message %></span></li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle  <%= @st.html_class %>" data-toggle="dropdown">
+    <span class="glyphicon glyphicon-ok-sign"></span>
+    <%= @zone %>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="drowndown-information">Total: <%= @total_zone / 60 %> hours</li>
+    <li class="drowndown-information">UCT: <%= @unsupervised_contact_time / 60 %> hours</li>
   </ul>
-</fieldset>
+</li>

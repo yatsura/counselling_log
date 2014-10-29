@@ -20,6 +20,10 @@ module Vo
       @scale
     end
 
+    def html_class
+      @scale.downcase.sub(' ', '-')
+    end
+
     def hash
       @scale.hash
     end
