@@ -5,7 +5,6 @@ module Lookups
       if parent.is_a? Organisation
         parent.clients.map(&client_lookup)
       elsif parent.is_a? Supervisor
-        #        ::Client.where(:code => 'SELF').map(&client_lookup)
         Supervisor.all.map(&client_lookup)
       elsif parent.is_a? ::Client
         [parent].map(&client_lookup)

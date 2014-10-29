@@ -1,11 +1,11 @@
 <li class="dropdown">
   <a href="#" class="dropdown-toggle  <%= @st.html_class %>" data-toggle="dropdown">
-    <span class="glyphicon glyphicon-ok-sign"></span>
+    <span class="glyphicon <%= @st.glyphicon %>"></span>
     <%= @zone %>
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="drowndown-information">Total: <%= @total_zone / 60 %> hours</li>
-    <li class="drowndown-information">UCT: <%= @unsupervised_contact_time / 60 %> hours</li>
+    <li class="dropdown-information">Total: <%= @total_zone / 60 %> hours</li>
+    <li class="dropdown-information">UCT: <%= @unsupervised_contact_time / 60 %> hours</li>
   </ul>
 </li>
