@@ -20,9 +20,9 @@ describe Lookups::Client do
     expect(Lookups::Client.by_parent(Client.first)).to include([Client.first.code,Client.first.id])
   end
 
-  it "lists client as SELF when parent is a supervisor" do
+  it "lists client as supervisor when parent is a supervisor" do
     expect(Lookups::Client.by_parent(@supervisor).count).to eq(1)
-    expect(Lookups::Client.by_parent(@supervisor)).to include([@c_self.code,@c_self.id])
+    expect(Lookups::Client.by_parent(@supervisor)).to include([@supervisor.code,@supervisor.id])
   end
 
   it "lists all for anything else" do
