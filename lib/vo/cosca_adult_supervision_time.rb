@@ -1,5 +1,11 @@
 module Vo
   class CoscaAdultSupervisionTime
+    VALUES = {
+      distant: ["distant", "glyphicon-ok-sign"],
+      close:   ["close", "glyphicon-info-sign"],
+      due:     ["due", "glyphicon-exclamation-sign"],
+      over_due:["over-due", "glyphicon-remove-sign"]
+    }
     def self.from_minutes(minutes)
       if minutes <= (6*60)
         new("Distant")

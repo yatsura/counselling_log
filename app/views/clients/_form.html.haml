@@ -1,0 +1,24 @@
+.col-md-2
+.col-md-8
+  = form_for :client, html: {role: "form", class: "form-horizontal"} do |f|
+    .form-group
+      %label{for: "client_code", class: "col-sm-1"} Code
+      .col-xs-2
+        = f.text_field :code, class: "form-control"
+    .form-group
+      %label{for: "client_zone", class: "col-sm-1"} Adult/Child
+      .col-xs-2
+        = f.select :zone, ([['Adult','Adult'],['Child','Child']]), {}, {:class => "form-control"}
+    .form-group
+      %label{for: "client_organisation_id", class: "col-sm-1"} Organisation
+      .col-xs-2
+        = f.select :organisation_id, org_list, {}, {class: "form-control"}
+    .form-group
+      %label{for: "client_gender", class: "col-sm-1"} Gender
+      .col-xs-2
+        = f.text_field :gender, class: "form-control"
+    .form-group
+      %label{for: "client_nodes", class: "col-sm-1"} Notes
+      .col-xs-4
+        = f.text_area :notes, class: "form-control"
+    = f.submit "Update", class: "btn btn-primary btn-lg"
