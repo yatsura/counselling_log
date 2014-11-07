@@ -104,5 +104,4 @@ describe ClientsController, :type => :controller do
       }.to change(Client, :count)
     end
   end
-
 end

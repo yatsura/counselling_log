@@ -7,8 +7,6 @@ CounsellingLog::Application.routes.draw do
 
   resources :supervisors, :concerns => :meetable
   resources :clients, :concerns => :meetable
-  resources :organisations, :concerns => :meetable do
-    resources :clients, :only => [:index, :new, :create]
-  end
+  resources :organisations, :concerns => :meetable
   resources :counselling_sessions
 end

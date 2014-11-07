@@ -1,6 +1,5 @@
 class ClientsController < ApplicationController
   helper_method :resource_class, :parent, :resource
-  helper_method :new_resource_path, :collection_path, :edit_resource_path
   helper_method :org_list
 
   before_action :get_new, only: [:new, :create]
@@ -26,18 +25,6 @@ class ClientsController < ApplicationController
 
   def resource
     @client
-  end
-
-  def new_resource_path
-    new_client_path
-  end
-
-  def edit_resource_path
-    edit_client_path
-  end
-
-  def collection_path
-    clients_path
   end
 
   def org_list

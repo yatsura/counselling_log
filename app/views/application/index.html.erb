@@ -8,4 +8,4 @@
   </div>
   <%= will_paginate @assets, :container => false %>
 </div>
-<%= link_to "New", new_resource_path, :class=> "btn btn-lg btn-primary", :role => "button" %>
+<%= link_to "New", :controller => resource_class.table_name, :action => 'new', :class=> "btn btn-lg btn-primary", :role => "button" %>
