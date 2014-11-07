@@ -20,7 +20,7 @@ When(/^the code is incorrect$/) do
 end
 
 When(/^the "(.+)" button is pressed$/) do |arg1|
-  click_button arg1
+  click_link_or_button arg1
 end
 
 When(/^the "(.+)" link is clicked$/) do |arg1|
