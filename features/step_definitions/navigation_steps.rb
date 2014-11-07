@@ -29,7 +29,7 @@ Given(/^that the index counselling_session page is accessed$/) do
 end
 
 Given(/^that the index client page is accessed$/) do
-  visit organisation_clients_path(Organisation.first)
+  visit clients_path
 end
 
 Given(/^that the index organisation page is accessed$/) do
