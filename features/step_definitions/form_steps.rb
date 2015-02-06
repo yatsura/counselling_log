@@ -24,8 +24,8 @@ When(/^the "(.+)" button is pressed$/) do |arg1|
 end
 
 When(/^the "(.+)" link is clicked$/) do |arg1|
-  within("div.main_con") do
-    click_link arg1
+  within("div.yielded-container") do
+    click_link_or_button arg1
   end
 end
 
@@ -41,7 +41,7 @@ Then(/^the "(.+)" page [is|are] displayed$/) do |arg1|
 end
 
 Then(/^a table of "(.*?)" details are visible$/) do |arg1|
-  expect(page).to have_css("table.#{arg1.gsub(' ','_')}_grid")
+  expect(page).to have_css("table.table")
 end
 
 When(/^valid session details for the client are entered$/) do

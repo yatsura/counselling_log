@@ -1,12 +1,15 @@
 require 'spec_helper'
 
 RSpec.describe "clients/_form.html.haml" do
+  include Formtastic::Helpers::FormHelper
   before do
     @client = FactoryGirl.build :client
     allow(view).to receive(:org_list).and_return([['Acme', '1'],['Bcme', '2']])
     assign(:client, @client)
-
-    render
+    semantic_form_for(@client) do |builder|
+      allow(view).to receive(:f).and_return(builder)
+      render
+    end
   end
 
   it "zone select contains adult and child" do

@@ -16,5 +16,5 @@ Then(/^the supervision is "(.*?)"$/) do |arg1|
 end
 
 Then(/^the "(.*?)" page is displayed$/) do |arg1|
-  find('h2.page_title').text.should eq(arg1)
+  find('.page_title').text.should eq(arg1)
 end

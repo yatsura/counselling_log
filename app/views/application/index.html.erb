@@ -1,11 +1,13 @@
 <div class="page-header">
   <h1 class="page_title"><%= "#{resource_class.model_name.human.pluralize}" %></h1>
 </div>
-<%= datagrid_table @grid, @assets %>
-<div class="apple_pagination">
-  <div class="page_info">
-    <%= page_entries_info @assets %>
+<div class="table-container">
+  <%= datagrid_table @grid, @assets %>
+  <div class="apple_pagination">
+    <div class="page_info">
+      <%= page_entries_info @assets %>
+    </div>
+    <%= will_paginate @assets, :container => false %>
   </div>
-  <%= will_paginate @assets, :container => false %>
 </div>
 <%= link_to "New", :controller => resource_class.table_name, :action => 'new', :class=> "btn btn-lg btn-primary", :role => "button" %>
