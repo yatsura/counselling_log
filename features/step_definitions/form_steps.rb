@@ -72,7 +72,7 @@ When(/^valid session details for the supervisor are entered$/) do
 end
 
 When(/^valid session details are entered$/) do
-  select 'CODE', :from => 'Client'
+  select 'CODE', :from => 'Meetable'
   select 'Adult', :from => 'Type'
   within 'li#counselling_session_date_input' do
     select '1', :from => 'Day'
@@ -81,7 +81,7 @@ When(/^valid session details are entered$/) do
     select '09', :from => 'Hour'
     select '45', :from => 'Minute'
   end
-  fille_in 'Length', :with => '60'
+  fill_in 'Length', :with => '60'
 end
 
 When(/^invalid session details are entered$/) do
